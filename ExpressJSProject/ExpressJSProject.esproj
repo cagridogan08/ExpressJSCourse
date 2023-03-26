@@ -6,6 +6,6 @@
     </BuildCommand>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="NewFolder\" />
+    <Folder Include="config\env\" />
   </ItemGroup>
 </Project>
