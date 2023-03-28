@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 
-const connectDatabase=()=>{
+const connectDatabase=async()=>{
     try {
-         mongoose.connect(process.env.CONNECTION_STRING,{useNewUrlParser:true}).then(()=>{
+         await mongoose.connect(process.env.CONNECTION_STRING,{useNewUrlParser:true}).then(()=>{
             console.log("Connection Successful");
          });
     } catch (error) {

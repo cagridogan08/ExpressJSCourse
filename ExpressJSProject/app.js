@@ -7,13 +7,15 @@ var {errorHandler} = require("./middlewares/Error/customErrorHandler");
 var {connectDatabase} = require("./helpers/database/connectDatabase");
 const dotenv = require("dotenv");
 var mainRouter = require("./routes/mainRouter");
-
+var appPORT=3000;
 dotenv.config({
   path:"./config/env/config.env"
 });
 //
 var app = express();
-
+app.listen(appPORT,() => {
+  console.log("Server Started on PORT:",appPORT);
+});
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", 'pug');
@@ -22,6 +24,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+//static files
 app.use(express.static(path.join(__dirname, 'public')));
 connectDatabase();
 /// defining main rotuer
@@ -42,6 +45,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
 
 module.exports = app;

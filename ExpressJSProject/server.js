@@ -1,4 +1,4 @@
-const express = require("is-expression");
+const express = require("express");
 
 const app = express();
 

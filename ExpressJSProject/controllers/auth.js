@@ -74,6 +74,16 @@ const logout = asyncErrorWrapper(async(req,response,next)=>{
         message:"LogOut Successful"
     });
 });
+
+const imageUpload = asyncErrorWrapper(async(req,res,next)=>{
+    //Image Upload Success
+    console.log(req.body);
+    res.status(200).json({
+        success:true,
+        message:"Image Upload Successfull"
+    })
+});
+
 module.exports = {
-    register,tokentest,GetUser,login,logout
+    register,tokentest,GetUser,login,logout,imageUpload
 };
